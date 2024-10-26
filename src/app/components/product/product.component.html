@@ -1,0 +1,25 @@
+<app-header></app-header>
+<nav aria-label="breadcrumb" class="m-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a>Home</a></li>
+      <li class="breadcrumb-item active">{{ product?.name }}</li>
+    </ol>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <img [src]="product?.image" class="img-fluid" alt="">
+    </div>
+    <div class="col-6">
+      <h4>{{ product?.name }}</h4>
+      <p>{{ product?.description }}</p>
+      <p>₹ {{ product?.price }}</p>
+      <div class="d-flex">
+        <div>Quantity : </div>
+        <div>
+          <app-add-to-cart (newItemEvent)="addToCart($event,product)"></app-add-to-cart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

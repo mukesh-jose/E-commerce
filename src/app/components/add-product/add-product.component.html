@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="product-container">
+    <h2 class="text-center mb-4">Product Details</h2>
+    <form [formGroup]="productForm">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Product Name:</label>
+                </div>
+                <div class="col-8">
+                    <!-- <input type="text" id="productName" name="productName" formControlName="productName" required> -->
+                    <input formControlName="productName" type="text" class="form-control my-3" placeholder="productName">
+                    <div
+                        *ngIf="productForm.controls['productName']?.invalid && (productForm.controls['productName'].dirty || productForm.controls['productName'].touched)">
+                        <div *ngIf="productForm.controls['productName'].errors?.['required']" class="text-danger">
+                            productName is
+                            required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Price :</label>
+                </div>
+                <div class="col-8">
+                    <!-- <input type="number" id="price" name="price" formControlName="price" required> -->
+                    <input formControlName="price" type="text" class="form-control my-3" placeholder="price">
+                    <div
+                        *ngIf="productForm.controls['price']?.invalid && (productForm.controls['price'].dirty || productForm.controls['price'].touched)">
+                        <div class="text-danger" *ngIf="productForm.controls['price'].errors?.['required']">price is
+                            required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>description :</label>
+                </div>
+                <div class="col-8">
+                    <textarea id="description" placeholder="description" name="description" formControlName="description" class="form-control my-3" rows="4"
+                        cols="30"></textarea>
+                    <div
+                        *ngIf="productForm.controls['description']?.invalid && (productForm.controls['description'].dirty || productForm.controls['description'].touched)">
+                        <div class="text-danger" *ngIf="productForm.controls['description'].errors?.['required']">
+                            description is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4 align-self-center">
+                    <label>Image URL :</label>
+                </div>
+                <div class="col-8">
+                    <!-- <input type="file" (change)="onFileSelected($event)" formControlName="image"> -->
+                    <!-- <input type="text" id="image" name="image" formControlName="image" required> -->
+                    <input formControlName="image" type="text" class="form-control my-3" placeholder="image">
+                    <div
+                        *ngIf="productForm.controls['image']?.invalid && (productForm.controls['image'].dirty || productForm.controls['image'].touched)">
+                        <div class="text-danger" *ngIf="productForm.controls['image'].errors?.['required']">
+                            ImageUrl is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <!-- <button class="me-4" type="submit" (click)="back()">Back</button> -->
+            <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" (click)="submit()">Submit</button>
+        </div>
+    </form>
+</div>

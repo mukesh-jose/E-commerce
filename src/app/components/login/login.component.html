@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row vh-100 bg-warning">
+        <div class="col my-auto">
+            <img src="../../../assets/images/ecomm-bg.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col my-auto">
+            <div class=" text-center p-3 w-500 mx-auto">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <input formControlName="username" type="text" class="form-control my-3" placeholder="Username">
+                    <input formControlName="password" type="password" class="form-control my-3" placeholder="Password">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
